@@ -1,0 +1,17 @@
+.App {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: "Roboto", sans-serif;
+  color: rgba(30, 30, 31, 0.853);
+}
+
+.App footer {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+}
+.App footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgba(30, 30, 31, 0.853);
+}
