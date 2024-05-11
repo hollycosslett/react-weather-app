@@ -1,61 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import App from "./App";
 import "./Weather.css";
 
 export default function Weather() {
-  return (
-    <div className="Weather">
-      <form>
-        <div className="row">
-          <div className="col-10 p-1">
-            <input
-              type="search"
-              placeholder="Enter a city..."
-              className="form-search-bar"
-            />
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  function showTemperature(response) {
+    setWeatherData({
+      ready: true,
+      city: response.data.city,
+      date: "Saturday 13.56",
+      temperature: response.data.temperature.current,
+      description: response.data.condition.description,
+      wind: response.data.wind.speed,
+      humidity: response.data.temperature.humidity,
+      icon: response.data.condition.icon_url,
+    });
+  }
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <form>
+          <div className="row">
+            <div className="col-10 p-1">
+              <input
+                type="search"
+                placeholder="Enter a city..."
+                className="form-search-bar"
+              />
+            </div>
+            <div className="col-2 p-1">
+              <input
+                type="submit"
+                value="Submit"
+                className="btn search-button"
+              />
+            </div>
           </div>
-          <div className="col-2 p-1">
-            <input type="submit" value="Submit" className="btn search-button" />
+        </form>
+        <div className="row weather-overview">
+          <div className="col-md-6">
+            <h1>{weatherData.city}</h1>
+            <ul>
+              <li>{weatherData.date}</li>
+              <li className="text-capitalize">{weatherData.description}</li>
+            </ul>
           </div>
-        </div>
-      </form>
-      <div className="row weather-overview">
-        <div className="col-md-6">
-          <h1>London</h1>
-          <ul>
-            <li>Saturday 09.58</li>
-            <li>Cloudy</li>
-          </ul>
-        </div>
-        <div className="col-md-6">
-          <div className="weather-overview-right">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
-              alt="cloudy icon"
-              className="main-icon img-fluid"
-            />
-            <div className="temperature">
-              14<span className="units">°C</span>
+          <div className="col-md-6">
+            <div className="weather-overview-right">
+              <img
+                src={weatherData.icon}
+                alt={weatherData.description}
+                className="main-icon img-fluid"
+              />
+              <div className="temperature">
+                {Math.round(weatherData.temperature)}
+                <span className="units">°C</span>
+              </div>
             </div>
           </div>
         </div>
+        <div className="additional-details">
+          <ul>
+            <li>
+              Humidity:{" "}
+              <div className="additional-details-measurements d-inline">
+                {weatherData.humidity}%
+              </div>
+            </li>
+            <li>
+              Wind:{" "}
+              <div className="additional-details-measurements d-inline">
+                {Math.round(weatherData.wind)}mph
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div className="additional-details">
-        <ul>
-          <li>
-            Precipitation:{" "}
-            <div className="additional-details-measurements d-inline">1%</div>
-          </li>
-          <li>
-            Humidity:{" "}
-            <div className="additional-details-measurements d-inline">80%</div>
-          </li>
-          <li>
-            Wind:{" "}
-            <div className="additional-details-measurements d-inline">5mph</div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
+    );
+  } else {
+    const apiKey = "48d9c02baa93fa8d733783cd33ot621f";
+    let city = "London";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(showTemperature);
+  }
+  return "loading";
 }

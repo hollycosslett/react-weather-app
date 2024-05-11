@@ -1,5 +1,5 @@
 .Weather {
-  border: 1px solid rgba(30, 28, 28, 0.325);
+  border: 1px solid rgba(31, 36, 43, 0.577);
   border-radius: 4px;
   padding: 20px;
   font-family: "Roboto", sans-serif;
@@ -23,7 +23,10 @@
   background-color: rgba(31, 36, 43, 0.853);
   color: white;
 }
-
+.Weather .search-button:hover {
+  background-color: white;
+  color: rgba(31, 36, 43, 0.853);
+}
 .Weather .weather-overview {
   align-items: center;
 }
@@ -63,7 +66,7 @@
 }
 .Weather .additional-details li {
   display: inline;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 .Weather .additional-details-measurements {
   font-weight: bold;
