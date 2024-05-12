@@ -1,6 +1,4 @@
 import React from "react";
-import App from "./App";
-import Weather from "./Weather";
 
 export default function FormattedDate(props) {
   console.log(props.date);
