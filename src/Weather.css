@@ -42,7 +42,7 @@
   align-items: center;
 }
 .Weather img {
-  width: 90px;
+  width: 100px;
   height: 100px;
 }
 .Weather .temperature {

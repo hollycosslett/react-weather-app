@@ -1,0 +1,22 @@
+.WeatherForecast {
+  text-align: center;
+  margin-top: 30px;
+}
+.WeatherForecast .forecastDay {
+  font-size: 17px;
+  background-color: rgba(218, 217, 217, 0.16);
+}
+
+.WeatherForecast .forecastTemperatures {
+  color: rgba(30, 30, 31, 0.548);
+  display: flex;
+  justify-content: center;
+}
+.WeatherForecast .dayTemp,
+.WeatherForecast .nightTemp {
+  margin: 5px;
+}
+
+.WeatherForecast .dayTemp {
+  font-weight: bold;
+}
