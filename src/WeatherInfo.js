@@ -15,15 +15,18 @@ export default function WeatherInfo(props) {
             <li className="text-capitalize">{props.data.description}</li>
           </ul>
         </div>
-        <div className="col-md-6">
-          <div className="weather-overview-right">
+        <div className="col-md-6 d-flex weather-overview-right">
+          <span>
             <img
               src={props.data.icon}
               alt={props.data.description}
               className="main-icon img-fluid"
             />
+          </span>
+          <span>
+            {" "}
             <WeatherTemperature celsius={props.data.temperature} />
-          </div>
+          </span>{" "}
         </div>
       </div>
       <div className="additional-details">
