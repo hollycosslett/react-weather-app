@@ -13,9 +13,17 @@ export default function WeatherForecast(props) {
   if (loaded) {
     return (
       <div className="WeatherForecast">
-        <WeatherForecastDay forecastData={forecast[0]} />
         <div className="row">
-          <div className="col"></div>
+          {forecast.map(function (dailyForecast, index) {
+            if (index < 5) {
+              return (
+                <div className="col" key={index}>
+                  <WeatherForecastDay forecastData={dailyForecast} />
+                </div>
+              );
+            }
+            return null;
+          })}
         </div>
       </div>
     );
