@@ -12,11 +12,11 @@
   display: flex;
   justify-content: center;
 }
-.WeatherForecast .dayTemp,
-.WeatherForecast .nightTemp {
+.WeatherForecast .maxTemp,
+.WeatherForecast .minTemp {
   margin: 5px;
 }
 
-.WeatherForecast .dayTemp {
+.WeatherForecast .maxTemp {
   font-weight: bold;
 }
