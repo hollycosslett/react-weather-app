@@ -13,7 +13,8 @@
   padding: 10px;
   border: 1px solid;
   border-radius: 4px;
-  color: rgba(31, 36, 43, 0.764);
+  background-color: rgba(31, 36, 43, 0.084);
+  color: rgba(31, 36, 43, 0.904);
 }
 .Weather .search-button {
   width: 100%;
