@@ -38,7 +38,7 @@ export default function WeatherInfo(props) {
             </div>
           </li>
           <li>
-            Wind:{" "}
+            Wind: {""}
             <div className="additional-details-measurements d-inline">
               {Math.round(props.data.wind)}mph
             </div>
